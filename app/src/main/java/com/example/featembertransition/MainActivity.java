@@ -1,32 +1,66 @@
 package com.example.featembertransition;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.graphics.Canvas;
+
+import android.app.Activity;
+
 import android.media.MediaPlayer;
+
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
+
+
+
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     int ARRAY_LENGTH=50;
     public static List<Bubble> bbl;
+ static  Thread thread;
+DrawWave drawWave;
+    static MediaPlayer mp;
+    static boolean done=false;
+
+ public static fragment2 frag;
+        static FragmentManager fm;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+    setContentView(R.layout.activity_main);
+    getSupportActionBar().hide();
+
+         frag= new fragment2();
+         fm=getSupportFragmentManager();
+        FragmentTransaction ft=fm.beginTransaction();
+ft.replace(R.id.mainactivity,frag);
+        ft.commit();
+
+
+
+
+
+/*
+        drawWave=findViewById(R.id.drawing);
         bbl = new ArrayList<Bubble>();
-        MediaPlayer mp = new MediaPlayer();
+         mp = new MediaPlayer();
         mp = MediaPlayer.create(getApplicationContext(), R.raw.pouring_sound);
+        thread=new Thread(drawWave);
         mp.start();
-        //for(int i=0;i<ARRAY_LENGTH;i++)
+        thread.start();
+        */
+
+
+
     }
 
 
@@ -44,4 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 0.5f
         ));
     }
+
+
 }

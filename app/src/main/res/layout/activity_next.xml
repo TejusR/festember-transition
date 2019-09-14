@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainactivity"
-    tools:context=".MainActivity"
-    tools:ignore="InvalidId">
+    tools:context=".next">
 
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="150dp"
+
+       android:text="ACTIVITY 2"/>
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.example.featembertransition.cokedownview
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/changedview">
-<!--
-        <com.example.featembertransition.DrawWave
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/drawing"/>
--->
+        android:id="@+id/downviewer"/>
+
+
 
 
     </FrameLayout>
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
